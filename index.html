@@ -4,12 +4,21 @@
     </head>
 
     <body>
-        <h1>Hello World!</h1>
+        <div align = "center">
+            <h1>Welcome to the web calculator!</h1>
 
-        <form action = "scripts/calculate.php" method = "post">
-            Put your name here: <br><br>
-            <input type = "text" name = "username"> <br><br>
-            <input type = "submit" value = "Submit name"> <br><br>
-        </form>
+            <form action = "scripts/calculate.php" method = "post">
+                Put two values in here: <br><br>
+                <input type = "text" name = "num1"> <br>
+                <input type = "text" name = "num2"> <br><br>
+                
+                <input type = "radio" name = "op" value = "add"> Add <br>
+                <input type = "radio" name = "op" value = "subtract"> Subtract <br>
+                <input type = "radio" name = "op" value = "multiply"> Multiply <br>
+                <input type = "radio" name = "op" value = "divide"> Divide <br><br>
+
+                <input type = "submit" value = "Get result"> <br><br>
+            </form>
+        </div>
     </body>
 </html>
