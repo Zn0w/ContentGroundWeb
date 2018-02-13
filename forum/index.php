@@ -2,9 +2,10 @@
 <html>
 	<head>
 		<title>ContentGroundForum Homepage</title>
+		<link rel = "stylesheet" href = "styles/mainstyle.css"/>
 	</head>
 	
-	<body align = "center">
+	<body>
 		<h1>Welcome to the Content Ground Forum homepage!</h1>
 
 		<a href = ""><strong>Homepage</strong></a>

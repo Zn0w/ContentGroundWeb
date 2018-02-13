@@ -2,9 +2,10 @@
 <html>
 	<head>
 		<title>ContentGroundForum Log in</title>
+		<link rel = "stylesheet" href = "styles/mainstyle.css"/>
 	</head>
 
-	<body align = "center">
+	<body>
 		<form>
 			Your login: <br><br>
 			<input type = "text" name = "login">
