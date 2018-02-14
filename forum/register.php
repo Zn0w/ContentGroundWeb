@@ -6,7 +6,7 @@
 	</head>
 
 	<body>
-		<form>
+		<form method = "post">
 			Your login: <br><br>
 			<input type = "text" name = "login">
 			<br><br><br><br>
@@ -22,5 +22,12 @@
 </html>
 
 <?php
-	if ()
+	if (!empty($_POST))
+	{
+		$userlogin = $_POST["login"];
+		$username = $_POST["name"];
+		$userpassword = $_POST["password"];
+
+		echo "Login: " . $userlogin . "    Name: " . $username . "    Password: " . $userpassword;
+	}
 ?>
