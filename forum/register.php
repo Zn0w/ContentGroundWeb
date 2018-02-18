@@ -32,13 +32,11 @@
 		$username = $_POST["name"];
 		$userpassword = $_POST["password"];
 
-		echo "Login: " . $userlogin . "    Name: " . $username . "    Password: " . $userpassword;
+		echo "Login: " . $userlogin . "    Name: " . $username . "    Password: " . $userpassword . "<br>";
 
-		$result = mysqli_query($db_connection, "select * from users;");
+		$sql_update_query = "insert into users (login, name, password) 
+		values ('$userlogin', '$username', '$userpassword');";
 
-		while ($row = mysqli_fetch_assoc($result))
-		{
-			echo $row["login"] . "<br>";
-		}
+		mysqli_query($db_connection, $sql_update_query);
 	}
 ?>
