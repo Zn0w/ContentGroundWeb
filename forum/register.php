@@ -1,3 +1,7 @@
+<?php
+	include_once "includes/dbconnect.php";
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -29,5 +33,12 @@
 		$userpassword = $_POST["password"];
 
 		echo "Login: " . $userlogin . "    Name: " . $username . "    Password: " . $userpassword;
+
+		$result = mysqli_query($db_connection, "select * from users;");
+
+		while ($row = mysqli_fetch_assoc($result))
+		{
+			echo $row["login"] . "<br>";
+		}
 	}
 ?>
