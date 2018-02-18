@@ -38,14 +38,14 @@
 		$result_login = mysqli_query($db_connection, $sql_find_login);
 		$result_name = mysqli_query($db_connection, $sql_find_name);
 
-		if (mysqli_num_rows($result_login) == 0 || mysqli_num_rows($result_name) == 0)
+		if (mysqli_num_rows($result_login) > 0 || mysqli_num_rows($result_name) > 0)
 		{
-			$sql_update_query = "insert into users (login, name, password) values ('$userlogin', '$username', '$userpassword');";
-			mysqli_query($db_connection, $sql_update_query);
+			echo "<h2>Sorry, this login or name is already taken!</h2>";
 		}
 		else
 		{
-			echo "<h2>Sorry, this login or name is already taken!</h2>";
+			$sql_update_query = "insert into users (login, name, password) values ('$userlogin', '$username', '$userpassword');";
+			mysqli_query($db_connection, $sql_update_query);
 		}
 	}
 ?>
