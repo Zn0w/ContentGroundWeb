@@ -32,11 +32,20 @@
 		$username = $_POST["name"];
 		$userpassword = $_POST["password"];
 
-		echo "Login: " . $userlogin . "    Name: " . $username . "    Password: " . $userpassword . "<br>";
+		$sql_find_login = "select * from users where login = '$userlogin';";
+		$sql_find_name = "select * from users where login = '$username';";
 
-		$sql_update_query = "insert into users (login, name, password) 
-		values ('$userlogin', '$username', '$userpassword');";
+		$result_login = mysqli_query($db_connection, $sql_find_login);
+		$result_name = mysqli_query($db_connection, $sql_find_name);
 
-		mysqli_query($db_connection, $sql_update_query);
+		if (mysqli_num_rows($result_login) == 0 || mysqli_num_rows($result_name) == 0)
+		{
+			$sql_update_query = "insert into users (login, name, password) values ('$userlogin', '$username', '$userpassword');";
+			mysqli_query($db_connection, $sql_update_query);
+		}
+		else
+		{
+			echo "<h2>Sorry, this login or name is already taken!</h2>";
+		}
 	}
 ?>
