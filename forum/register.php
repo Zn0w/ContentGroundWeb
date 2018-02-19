@@ -44,7 +44,11 @@
 		}
 		else
 		{
-			$sql_update_query = "insert into users (login, name, password) values ('$userlogin', '$username', '$userpassword');";
+			$sql_update_query = "insert into users (login, name, password) values (
+				'$userlogin', 
+				'$username', 
+				'$userpassword'
+			);";
 			mysqli_query($db_connection, $sql_update_query);
 		}
 	}
