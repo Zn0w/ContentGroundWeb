@@ -1,3 +1,7 @@
+<?php
+	include_once "includes/dbconnect.php";
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,3 +21,14 @@
 		</form>
 	</body>
 </html>
+
+<?php
+	if (!empty($_POST))
+	{
+		$user_login = $_POST["login"];
+		$user_password = $_POST["password"];
+
+		$sql_get_user = "select * from users where login = '$user_login'";
+		$result = mysqli_query($db_connection, $sql_get_user);
+	}
+?>
