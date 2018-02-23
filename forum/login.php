@@ -28,13 +28,13 @@
 		$user_login = $_POST["login"];
 		$user_password = $_POST["password"];
 
-		$sql_get_user = "select * from users where login = '$user_login'";
+		$sql_get_user = "select * from users";/* where login = '$user_login'";*/
 		$result = mysqli_query($db_connection, $sql_get_user);
 
-		/*while ($row = mysqli_fetch_assoc($result))
+		while ($row = mysqli_fetch_assoc($result))
 +		{
 +			echo $row["login"] . "<br>";
-+		}*/
++		}
 
 		if (!mysqli_num_rows($result))
 		{
@@ -47,9 +47,11 @@
 		else
 		{
 			echo mysqli_num_rows($result);
-			$user_data = mysqli_fetch_row($result);
-			//echo "<h2>Welcome, " . $user_data["name"] . "</h2>";
-			echo $user_data[2];
+			$user_data = mysqli_fetch_assoc($result);
+			
+			echo $user_data["name"];
 		}
+
+		mysli_close($db_connection);
 	}
 ?>
