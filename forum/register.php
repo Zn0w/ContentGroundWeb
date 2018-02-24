@@ -28,6 +28,8 @@
 <?php
 	if (!empty($_POST))
 	{
+		$db_connection = get_db_connection();
+		
 		$userlogin = $_POST["login"];
 		$username = $_POST["name"];
 		$userpassword = $_POST["password"];
@@ -51,5 +53,7 @@
 			);";
 			mysqli_query($db_connection, $sql_update_query);
 		}
+
+		mysqli_close($db_connection);
 	}
 ?>

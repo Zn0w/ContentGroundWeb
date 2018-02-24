@@ -25,6 +25,8 @@
 <?php
 	if (!empty($_POST))
 	{
+		$db_connection = get_db_connection();
+		
 		$user_login = $_POST["login"];
 		$user_password = $_POST["password"];
 
@@ -46,6 +48,6 @@
 			echo $user_data["name"];
 		}
 
-		//mysli_close($db_connection);
+		mysqli_close($db_connection);
 	}
 ?>
