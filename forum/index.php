@@ -14,7 +14,7 @@
 		&nbsp; &nbsp; &nbsp; &nbsp;
 		<a href = "">About</a>
 
-		<br>
+		<br><br><br><br>
 
 		<?php
 			if (!isset($_COOKIE["userlogin"]))
@@ -28,7 +28,7 @@
 			}
 			else
 			{
-				echo "Hello, " . $_COOKIE["username"] . "( " . $_COOKIE["userlogin"] . " )" . " !";
+				echo "<h2>Hello, " . $_COOKIE["username"] . " !</h2>";
 			}
 		?>
 	</body>	

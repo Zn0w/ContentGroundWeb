@@ -20,6 +20,10 @@
 			<br><br><br><br>
 			<input type = "submit" name = "submit" value = "Log in">
 		</form>
+
+		<br><br><br><br>
+
+		<a href = "index.php">Go back to homepage</a>
 	</body>
 </html>
 

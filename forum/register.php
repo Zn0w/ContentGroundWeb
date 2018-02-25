@@ -22,6 +22,10 @@
 			<br><br><br><br>
 			<input type = "submit" name = "submit" value = "Register">
 		</form>
+
+		<br><br><br><br>
+
+		<a href = "index.php">Go back to homepage</a>
 	</body>
 </html>
 
@@ -52,6 +56,10 @@
 				'$userpassword'
 			);";
 			mysqli_query($db_connection, $sql_update_query);
+			
+			mysqli_close($db_connection);
+			header("Location: login.php");
+			exit;
 		}
 
 		mysqli_close($db_connection);
