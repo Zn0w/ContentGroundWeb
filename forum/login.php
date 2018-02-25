@@ -1,5 +1,6 @@
 <?php
 	include_once "includes/dbconnect.php";
+	include_once "includes/userdata_cookies.php";
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +46,12 @@
 		}
 		else
 		{
-			echo $user_data["name"];
+			init_user_cookies($user_data["login"], $user_data["name"]);
+
+			mysqli_close($db_connection);
+			header("Location: index.php");
+
+			exit;
 		}
 
 		mysqli_close($db_connection);

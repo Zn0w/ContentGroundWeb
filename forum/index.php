@@ -28,7 +28,7 @@
 			}
 			else
 			{
-				echo "Hello, " . $_COOKIE["userlogin"] . " !";
+				echo "Hello, " . $_COOKIE["username"] . "( " . $_COOKIE["userlogin"] . " )" . " !";
 			}
 		?>
 	</body>	
