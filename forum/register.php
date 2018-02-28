@@ -38,6 +38,12 @@
 		$username = $_POST["name"];
 		$userpassword = $_POST["password"];
 
+		if (strlen($userlogin) < 2 || strlen($username) < 2 || strpos($userlogin, " ") > 0)
+		{
+			echo "This user login or name is not valid.";
+			exit;
+		}
+
 		$sql_find_login = "select * from users where login = '$userlogin';";
 		$sql_find_name = "select * from users where login = '$username';";
 
