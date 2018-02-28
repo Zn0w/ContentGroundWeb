@@ -38,9 +38,19 @@
 		$username = $_POST["name"];
 		$userpassword = $_POST["password"];
 
-		if (strlen($userlogin) < 2 || strlen($username) < 2 || strpos($userlogin, " ") > 0)
+		if (strlen($userlogin) < 3 || strpos($userlogin, " ") > 0)
 		{
-			echo "This user login or name is not valid.";
+			echo "The user login is too short or has spaces.";
+			exit;
+		}
+		else if (strlen($username) < 3)
+		{
+			echo "The user name is too short.";
+			exit;
+		}
+		else if (strlen($userpassword) < 4 || strpos($userpassword, " ") > 0)
+		{
+			echo "The password is too short or has spaces";
 			exit;
 		}
 
