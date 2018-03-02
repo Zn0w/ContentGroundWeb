@@ -1,3 +1,7 @@
+<?php
+	include_once "includes/user.php";
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -30,6 +34,9 @@
 			{
 				echo "<h2>Hello, " . $_COOKIE["username"] . " !</h2>";
 			}
+
+			$user = new User("Torrt", "12345", "Tom");
+			$user->print();
 		?>
 	</body>	
 </html>

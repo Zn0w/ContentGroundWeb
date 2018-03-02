@@ -18,6 +18,6 @@ class User
 
 	public function print()
 	{
-		echo "<h3>User: $login  $passsword  $name</h3>";
+		echo "<h3>User: $this->login  $this->password  $this->name</h3>";
 	}
 };
