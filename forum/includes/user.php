@@ -2,22 +2,20 @@
 
 class User
 {
-	public $login, $password, $name;
+	public $login, $name;
+	public $rating;
+	// List of user's discussions
+	// List of user's favorited discussions
+	// List of user's entered communities
 
-	public function __construct($login, $password, $name)
+	public function __construct($login, $name)
 	{
 		$this->login = $login;
-		$this->password = $password;
 		$this->name = $name;
 	}
 
 	public function __destruct()
 	{
 
-	}
-
-	public function print()
-	{
-		echo "<h3>User: $this->login  $this->password  $this->name</h3>";
 	}
 };
