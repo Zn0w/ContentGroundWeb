@@ -14,7 +14,7 @@
 
 		<a href = ""><strong>Homepage</strong></a>
 		&nbsp; &nbsp; &nbsp; &nbsp;
-		<a href = "">My account</a>
+		<a href = "my_account.php">My account</a>
 		&nbsp; &nbsp; &nbsp; &nbsp;
 		<a href = "">About</a>
 
