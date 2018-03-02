@@ -21,7 +21,7 @@
 		<br><br><br><br>
 
 		<?php
-			if (!isset($_COOKIE["userlogin"]))
+			if (!isset($_COOKIE["userlogin"]) || !isset($_COOKIE["username"]))
 			{
 				echo "<p>Please, login or register in order to: 
 				create  content on this forum, start discussions, enter communities an more!</p>";
@@ -34,9 +34,6 @@
 			{
 				echo "<h2>Hello, " . $_COOKIE["username"] . " !</h2>";
 			}
-
-			$user = new User("Torrt", "12345", "Tom");
-			$user->print();
 		?>
 	</body>	
 </html>
