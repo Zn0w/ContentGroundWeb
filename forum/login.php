@@ -1,6 +1,6 @@
 <?php
-	include_once "includes/dbconnect.php";
 	include_once "includes/userdata_cookies.php";
+	include_once "includes/login_db_access.php";
 ?>
 
 <!DOCTYPE html>
@@ -35,10 +35,7 @@
 		$user_login = $_POST["login"];
 		$user_password = $_POST["password"];
 
-		$sql_get_user = "select * from users where login = '$user_login'";
-		$result = mysqli_query($db_connection, $sql_get_user);
-
-		$user_data = mysqli_fetch_assoc($result);
+		$user_data = get_user($user_login);
 
 		if (!$user_data)
 		{
@@ -51,13 +48,9 @@
 		else
 		{
 			init_user_cookies($user_data["login"], $user_data["name"]);
-
-			mysqli_close($db_connection);
 			header("Location: index.php");
 
 			exit;
 		}
-
-		mysqli_close($db_connection);
 	}
 ?>
