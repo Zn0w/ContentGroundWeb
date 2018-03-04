@@ -1,5 +1,5 @@
 <?php
-	include_once "includes/dbconnect.php";
+	include_once "includes/user_data_db_access.php";
 ?>
 
 <!DOCTYPE html>
@@ -32,8 +32,6 @@
 <?php
 	if (!empty($_POST))
 	{
-		$db_connection = get_db_connection();
-		
 		$userlogin = $_POST["login"];
 		$username = $_POST["name"];
 		$userpassword = $_POST["password"];
@@ -54,30 +52,26 @@
 			exit;
 		}
 
-		$sql_find_login = "select * from users where login = '$userlogin';";
-		$sql_find_name = "select * from users where login = '$username';";
+		$result_login = get_user($userlogin, "login");
+		$result_name = get_user($username, "name");
 
-		$result_login = mysqli_query($db_connection, $sql_find_login);
-		$result_name = mysqli_query($db_connection, $sql_find_name);
-
-		if (mysqli_num_rows($result_login) > 0 || mysqli_num_rows($result_name) > 0)
+		if ($result_login != null || $result_name != null)
 		{
 			echo "<h2>Sorry, this login or name is already taken!</h2>";
 		}
 		else
 		{
-			$sql_update_query = "insert into users (login, name, password) values (
-				'$userlogin', 
-				'$username', 
-				'$userpassword'
-			);";
-			mysqli_query($db_connection, $sql_update_query);
+			$done = create_user($userlogin, $username, $userpassword);
 			
-			mysqli_close($db_connection);
-			header("Location: login.php");
-			exit;
+			if (!$done)
+			{
+				echo "<h2>Sorry, the error occured while trying to register.</h2>";
+			}
+			else
+			{
+				header("Location: login.php");
+				exit;
+			}
 		}
-
-		mysqli_close($db_connection);
 	}
 ?>

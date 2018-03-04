@@ -1,6 +1,6 @@
 <?php
 	include_once "includes/userdata_cookies.php";
-	include_once "includes/login_db_access.php";
+	include_once "includes/user_data_db_access.php";
 ?>
 
 <!DOCTYPE html>
@@ -30,12 +30,10 @@
 <?php
 	if (!empty($_POST))
 	{
-		$db_connection = get_db_connection();
-		
 		$user_login = $_POST["login"];
 		$user_password = $_POST["password"];
 
-		$user_data = get_user($user_login);
+		$user_data = get_user($user_login, "login");
 
 		if (!$user_data)
 		{

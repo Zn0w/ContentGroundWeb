@@ -1,1 +1,0 @@
-$sql_get_user = "select * from users where login = '$user_login'";
