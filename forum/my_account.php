@@ -1,3 +1,7 @@
+<?php
+	include_once "includes/user_data_db_access.php";
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -23,6 +27,9 @@
 			else
 			{
 				echo "<h1>" . $_COOKIE["username"] . " (" . $_COOKIE["userlogin"] . ")</h1>";
+				$user_data = get_user($_COOKIE["userlogin"], "login");
+
+				echo "<h1>Rating: " . $user_data["rating"] . "</h1>";
 			}
 		?>
 	<body>
